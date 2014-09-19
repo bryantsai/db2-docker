@@ -1,0 +1,13 @@
+*-----------------------------------------------------
+* Generated response file used by the DB2 Setup wizard
+* generation time: 8/6/14 5:12 PM
+*-----------------------------------------------------
+*  Product Installation 
+LIC_AGREEMENT       = ACCEPT
+PROD       = EXPRESS_C
+FILE       = /opt/ibm/db2/V10.5
+INSTALL_TYPE       = COMPACT
+*-----------------------------------------------
+*  Installed Languages 
+*-----------------------------------------------
+LANG       = EN
