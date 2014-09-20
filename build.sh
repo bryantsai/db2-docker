@@ -1,5 +1,3 @@
 #!/bin/bash
-docker build -t db2:ubuntu-base ubuntu-base
-docker build -t db2:expc expc
-
+docker build -t db2:expc .
 ./create-inst.sh "$@"

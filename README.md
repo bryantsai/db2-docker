@@ -12,14 +12,9 @@ Run the build script
 
     ./build.sh
 
-It will build 2 images:
+It builds an image `db2:expc` with DB2 Express-C compact installation (no instance created) and another "data-only" container named "`db2_data_1`". More on this "data-only" container in the next section.
 
-1. `db2:ubuntu-base`: image base on ubuntu with all DB2 pre-requisite packages.
-2. `db2:expc`: image with DB2 Express-C compact installation (no instance created).
-
-as well as one "data-only" container named "`db2_data_1`". More on this "data-only" container in the next section.
-
-You only need to run "`build.sh`" once per Docker install to create the 2 images. There's a separate shell script "`create-inst.sh`" for creating additional DB2 instances: 
+You only need to run "`build.sh`" once per Docker install. There's a separate shell script "`create-inst.sh`" for creating additional DB2 containers: 
 
     ./create-inst.sh 2
 
@@ -38,6 +33,14 @@ This run script issues `db2start` for you and then puts you in the bash shell. I
     > db2 "create db sample"
 
 After the database is created, you can safely logout of the container as the database's data files are stored in another "data-only" container. Run the launch script as many times as you want. You will always be able to connect to the same persisted database content as long as you don't manually remove the "data-only" container (see later section for more details).
+
+*When launching from the run script, you might see the following error message. It does not seem to cause any problem for DB2.*
+
+    $ ./run-inst.sh
+    SQL1063N  DB2START processing was successful.
+    bash: cannot set terminal process group (7): Inappropriate ioctl for device
+    bash: no job control in this shell
+    $ 
 
 There's another script for starting DB2 contatiner and keep it running in the background:
 
