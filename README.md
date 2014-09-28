@@ -12,7 +12,7 @@ Run the build script
 
     ./build.sh
 
-It builds an image `db2:expc` with DB2 Express-C compact installation (no instance created) and another "data-only" container named "`db2_data_1`". More on this "data-only" container in the next section.
+It builds an image `bryantsai/db2-expc` with DB2 Express-C compact installation (no instance created) and another "data-only" container named "`db2_data_1`". More on this "data-only" container in the next section.
 
 You only need to run "`build.sh`" once per Docker install. There's a separate shell script "`create-inst.sh`" for creating additional DB2 containers: 
 
