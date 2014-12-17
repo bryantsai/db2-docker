@@ -49,10 +49,10 @@ dpkg --add-architecture i386 \
  && apt-get -y install libpam0g:i386 libaio1 libstdc++6 lib32stdc++6 binutils \
  && ln -s /lib/i386-linux-gnu/libpam.so.0 /lib/libpam.so.0
 rm -rf /var/lib/apt/lists/*
-groupadd db2grp1;groupadd db2fgrp1;groupadd dasadm1 \
- && useradd -g db2grp1 -m -d /home/db2inst1 db2inst1 -p db2inst1 \
- && useradd -g db2fgrp1 -m -d /home/db2fenc1 db2fenc1 -p db2fenc1 \
- && useradd -g dasadm1 -m -d /home/dasusr1 dasusr1 -p dasusr1
+groupadd db2grp1;groupadd db2fgrp1;groupadd dasadm1; \
+ useradd -g db2grp1 -m -d /home/db2inst1 db2inst1 && echo db2inst1:db2inst1 | chpasswd; \
+ useradd -g db2fgrp1 -m -d /home/db2fenc1 db2fenc1 && echo db2fenc1:db2fenc1 | chpasswd; \
+ useradd -g dasadm1 -m -d /home/dasusr1 dasusr1 && echo dasusr1:dasusr1 | chpasswd
 cd /tmp; tar xvzf db2.tar.gz \
  && /tmp/$prod/db2setup -r /tmp/db2.rsp \
  && rm -fr /tmp/$prod
